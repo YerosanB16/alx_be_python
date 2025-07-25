@@ -1,9 +1,11 @@
-# File: control-flow/match_case_calculator.py
+# match_case_calculator.py
 
+# Prompt for user input
 num1 = float(input("Enter the first number: "))
 num2 = float(input("Enter the second number: "))
 operation = input("Choose the operation (+, -, *, /): ")
 
+# Match case to handle operations
 match operation:
     case "+":
         result = num1 + num2
@@ -15,10 +17,10 @@ match operation:
         result = num1 * num2
         print(f"The result is {result}.")
     case "/":
-        if num2 == 0:
-            print("Cannot divide by zero.")
-        else:
+        if num2 != 0:
             result = num1 / num2
             print(f"The result is {result}.")
+        else:
+            print("Cannot divide by zero.")
     case _:
         print("Invalid operation selected.")

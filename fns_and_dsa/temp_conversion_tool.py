@@ -25,7 +25,12 @@ def main():
             raise ValueError("Invalid temperature unit. Please enter 'C' or 'F'.")
 
     except ValueError as ve:
-        print(f"Invalid temperature. {ve}")
+        # Check if error is due to conversion to float or wrong unit
+        if "could not convert string to float" in str(ve):
+            print("Invalid temperature. Please enter a numeric value.")
+        else:
+            # For invalid unit error
+            print(f"Invalid temperature. {ve}")
 
 if __name__ == "__main__":
     main()

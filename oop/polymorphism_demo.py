@@ -1,11 +1,18 @@
+# oop/polymorphism_demo.py
 import math
 
 class Shape:
     def area(self):
-        pass
+        raise NotImplementedError("Subclasses must override area()")
 
-    def perimeter(self):
-        pass
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
 
 
 class Circle(Shape):
@@ -14,18 +21,3 @@ class Circle(Shape):
 
     def area(self):
         return math.pi * self.radius ** 2
-
-    def perimeter(self):
-        return 2 * math.pi * self.radius
-
-
-class Rectangle(Shape):
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
-
-    def area(self):
-        return self.width * self.height
-
-    def perimeter(self):
-        return 2 * (self.width + self.height)
